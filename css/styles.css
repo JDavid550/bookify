@@ -12,6 +12,13 @@ html{
 :root{
     --main-color:#0e131f;
     --second-color:#E0E2DB;
+    --title-font:'Fredoka One', cursive;
+    --second-font:'Manrope', sans-serif;
+}
+
+h3,h4{
+    font-size: 1.4rem;
+    font-family: var(--second-font);
 }
 
 
@@ -45,6 +52,7 @@ article{
     flex-direction: column;
     height: 100vh;
     overflow-y:scroll;
+    background-color: var(--second-color);
     
     
 }
@@ -126,18 +134,54 @@ input[type="button"]:focus{
 
 /* Results styles */
 
+.cover img{
+    cursor: pointer;
+}
+
 
 .container{
     display: flex;
     padding: 5rem;
+    
 }
 
 .info{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    margin-left: 5rem;
 }
 .editor-info{
     display: flex;
     flex-flow: row wrap;
-    
+    justify-content: space-evenly;
+    margin-top: 3rem;
 }
+
+.editor-info__div-1{
+    width: 50%;
+}
+
+.editor-info__div-2{
+    width: 50%;
+}
+
+.titles{
+    width: 100%;
+}
+
+.titles > h1{
+    font-family: var(--title-font);
+    text-shadow: none;
+    font-size: 3rem;
+}
+
+.titles> h2{
+    font-family: var(--second-font);
+    text-shadow: none;
+    font-size: 2rem;
+}
+
+
+
+

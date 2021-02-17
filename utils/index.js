@@ -21,9 +21,9 @@ submit.addEventListener('click', ()=>{
                     </div>
                     <div class="editor-info">
                         <div class="editor-info__div-1">
-                            <h3>Publicher: ${data.items[i].volumeInfo.publisher}</h3>
-                            <h4>Fecha de publicación:Release date: ${data.items[i].volumeInfo.publishedDate} </h4>
-                            <h4>${data.items[i].volumeInfo.language}</h4>
+                            <h3>Publisher: ${data.items[i].volumeInfo.publisher}</h3>
+                            <h4>Release date: ${data.items[i].volumeInfo.publishedDate} </h4>
+                            <h4>Language: ${data.items[i].volumeInfo.language}</h4>
                         </div>
                         <div class="editor-info__div-2">
                             <h4>Category: ${data.items[i].volumeInfo.categories}</h4>
@@ -34,8 +34,7 @@ submit.addEventListener('click', ()=>{
                 </div>
             </div>
             <hr>`
-        }
-        
+        } 
     })
     .catch( error => new Error(error));
 })
