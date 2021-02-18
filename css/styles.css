@@ -21,21 +21,37 @@ h3,h4{
     font-family: var(--second-font);
 }
 
+a{
+    text-decoration: none;
+    color: var(--second-color);
+}
+
+span{
+    font-family: var(--second-font);
+}
+
+body{
+    background-color:var(--second-color);
+}
 
 main{
     display: grid;
     grid-template-areas: 
     "header article"
-    "aside article";
+    "aside article"
+    "footer article";
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 10rem auto;
+    grid-template-rows: 10rem auto 1.8rem;
     height: 100vh;
+    
 }
 
 
 .aside{
     background-color: #0e131f;
     grid-area: aside;
+
+    
     
 }
 
@@ -55,6 +71,36 @@ article{
     background-color: var(--second-color);
     
     
+}
+
+.welcome-page{
+    display: grid;
+    grid-template-areas:
+    "phrase illustration" ;
+    grid-template-columns: 1fr 1fr;
+
+}
+.welcome-page__title{
+    grid-area: phrase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5rem;
+    width: 30rem;
+}
+
+.welcome-page__title h1{
+    font-size: 4rem;
+    color: var(--main-color);
+}
+
+.welcome-page__illustration{
+    grid-area: illustration;
+}
+
+.welcome-page__illustration img{
+    height: 100vh;
+    width: 38vw;
 }
 
 header{
@@ -80,11 +126,12 @@ aside{
     text-align: center;
 }
 
+
 aside>h1{
     color: white;
     font-family:'Fredoka One', cursive;
     font-size: 5rem;
-    text-shadow: 1px 1px 1px white;
+    text-shadow: 1px 1px 0.5px white;
     margin-bottom: 2rem;
 }
 
@@ -132,10 +179,36 @@ input[type="button"]:focus{
     outline: none;
 }
 
+footer{
+    grid-area: footer;
+    
+}
+
+.credits{
+    background-color: var(--second-color);
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--main-color);
+}
+
+.credits span{
+    color: var(--second-color);
+}
+
 /* Results styles */
 
 .cover img{
     cursor: pointer;
+}
+
+
+
+.cover img:hover{
+    transform: scale(1.05,1.05);
+    transition: 0.3ms;
+    box-shadow: 1px 1px 1px var(--main-color);
 }
 
 
@@ -180,6 +253,12 @@ input[type="button"]:focus{
     font-family: var(--second-font);
     text-shadow: none;
     font-size: 2rem;
+}
+
+/* Desactivar .welcome-page */
+
+.inactivate{
+    display: none;
 }
 
 
