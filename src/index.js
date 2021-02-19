@@ -1,3 +1,5 @@
+///Variables declaration///
+
 var keyword = document.getElementById('keyword');
 let api = `https://www.googleapis.com/books/v1/volumes?q=`;
 let submit = document.getElementById('submit');
@@ -6,40 +8,7 @@ const logo = document.getElementById('bookify_logo');
 let articleItems =[];
 articleItems = article.children;
 
-logo.addEventListener('click', ()=>{
-    location.reload();
-})
-
-const inactivate = ()=>{
-        let container = document.getElementsByClassName('container');
-        for (let i = 0; i < container.length; i++) {
-            container[i].classList.add('inactivate');
-        }
-}
-
-const executeSearch =()=>{
-    if (articleItems.length>1){
-        inactivate();
-        pull();
-    
-    }else{
-        pull();
-
-    } 
-}
-
-submit.addEventListener('click', ()=>{
-     executeSearch();
-})
-
-
-
-keyword.addEventListener('keyup', (e) =>{
-    if (e.code == 'Enter') {
-        executeSearch();
-    }
-})
-
+///Fetch the API////
 
 const pull = ()=>{
     fetch(api+keyword.value)
@@ -76,13 +45,66 @@ const pull = ()=>{
                 </div>
                 <hr>
                 </div>`
-    
             } 
         }        
     })
-
-
 }
+
+// Add the functionality to reload the page when click on the logo////
+
+logo.addEventListener('click', ()=>{
+    location.reload();
+})
+
+/// This function is used to hide the search results that may have been already done///
+
+const inactivate = ()=>{
+        let container = document.getElementsByClassName('container');
+        for (let i = 0; i < container.length; i++) {
+            container[i].classList.add('inactivate');
+        }
+}
+
+
+///There are two options to initiate the search, with click or pressing enter key, these functions allow that///
+
+const searchWithEnter = ()=>{
+    keyword.addEventListener('keyup', (e) =>{
+        if (e.code == 'Enter') {
+            executeSearch();
+        }
+    })
+}
+
+const searchwithClick = ()=>{
+    submit.addEventListener('click', ()=>{
+        executeSearch();
+   })
+}
+
+searchWithEnter();
+searchwithClick();
+
+
+///This function deploys the results according the conditions of results existing or no results yet
+/// It brings the pull function in fetch.js///
+
+const executeSearch =()=>{
+    if (articleItems.length>1){
+        inactivate();
+        pull();
+    
+    }else{
+        pull();
+
+    } 
+}
+
+
+
+
+
+
 
 
 
