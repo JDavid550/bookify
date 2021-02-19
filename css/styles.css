@@ -113,6 +113,10 @@ header{
     background-color: #0e131f;
 }
 
+header:hover{
+    cursor: pointer;
+}
+
 header>h1{
     font-family: 'Fredoka One', cursive;
     font-size:xx-large;

@@ -2,8 +2,43 @@ var keyword = document.getElementById('keyword');
 let api = `https://www.googleapis.com/books/v1/volumes?q=`;
 let submit = document.getElementById('submit');
 let article = document.getElementById('article');
+const logo = document.getElementById('bookify_logo');
 let articleItems =[];
 articleItems = article.children;
+
+logo.addEventListener('click', ()=>{
+    location.reload();
+})
+
+const inactivate = ()=>{
+        let container = document.getElementsByClassName('container');
+        for (let i = 0; i < container.length; i++) {
+            container[i].classList.add('inactivate');
+        }
+}
+
+const executeSearch =()=>{
+    if (articleItems.length>1){
+        inactivate();
+        pull();
+    
+    }else{
+        pull();
+
+    } 
+}
+
+submit.addEventListener('click', ()=>{
+     executeSearch();
+})
+
+
+
+keyword.addEventListener('keyup', (e) =>{
+    if (e.code == 'Enter') {
+        executeSearch();
+    }
+})
 
 
 const pull = ()=>{
@@ -49,22 +84,6 @@ const pull = ()=>{
 
 }
 
-submit.addEventListener('click', ()=>{
-    if (articleItems.length>1){
-        let container = document.getElementsByClassName('container');
-        for (let i = 0; i < container.length; i++) {
-            container[i].classList.add('inactivate');
-        }
-        pull();
-        
-    }else{
-    
-        console.log('No contiene');
-        pull();
-
-    }   
-
-}) 
 
 
 
