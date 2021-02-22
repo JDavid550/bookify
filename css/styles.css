@@ -202,14 +202,27 @@ footer{
 }
 
 /* Results styles */
+.cover{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 
-.cover img{
+.cover a{
+    color: var(--second-color);
+    font-family: var(--second-font);
+    background-color: var(--main-color);
     cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    margin-top: 3rem;
+    padding: 1rem 0;
+    font-size: 1.6rem;
 }
 
 
 
-.cover img:hover{
+.cover a:hover{
     transform: scale(1.05,1.05);
     transition: 0.3ms;
     box-shadow: 1px 1px 1px var(--main-color);
@@ -265,6 +278,8 @@ footer{
     display: none;
 }
 
+
+/***Viewer**/
 
 
 

@@ -8,6 +8,9 @@ const logo = document.getElementById('bookify_logo');
 let articleItems =[];
 articleItems = article.children;
 
+
+
+
 ///Fetch the API////
 
 const pull = ()=>{
@@ -17,12 +20,13 @@ const pull = ()=>{
         let welcomePage = document.querySelector('.welcome-page');
         if (keyword.value.length>3) {
             welcomePage.classList.add('inactivate');
-            for(let i = 0; i < data.items.length; i++){
+            for(let i = 0; i < data.items.length; i++){     
                 article.innerHTML += `
                 <div class=container>
                 <div class="subcontainer">
                     <div class="cover">
-                        <img src="${data.items[i].volumeInfo.imageLinks.thumbnail}" alt="Cover">
+                        <img class="cover_image" src="${data.items[i].volumeInfo.imageLinks.thumbnail}" alt="Cover">
+                        <a target="_blank" href=${data.items[i].volumeInfo.previewLink}>Leer</a>
                     </div>
                     <div class="info">
                         <div class="titles">
@@ -44,9 +48,16 @@ const pull = ()=>{
                     </div>
                 </div>
                 <hr>
-                </div>`
-            } 
-        }        
+                </div>` 
+                let cover = [];
+                cover = document.querySelectorAll('.cover_image');
+                cover.forEach((cover)=>{
+                cover.addEventListener('click',()=>{
+                    window.open(`${data.items[i].volumeInfo.previewLink}`);
+                });
+                })
+            }
+        }
     })
 }
 
@@ -70,15 +81,18 @@ const inactivate = ()=>{
 
 const searchWithEnter = ()=>{
     keyword.addEventListener('keyup', (e) =>{
-        if (e.code == 'Enter') {
+        if (e.code == 'Enter' && keyword.value.length>3) {
             executeSearch();
         }
+        
     })
 }
 
 const searchwithClick = ()=>{
     submit.addEventListener('click', ()=>{
-        executeSearch();
+        if (keyword.value.length>3) {
+            executeSearch();
+        }
    })
 }
 
@@ -96,6 +110,7 @@ const executeSearch =()=>{
     
     }else{
         pull();
+       
 
     } 
 }
@@ -109,16 +124,5 @@ const executeSearch =()=>{
 
 
 
-    
 
 
-
-
-
-
-
-
-
-        
-       
-        
