@@ -1,0 +1,103 @@
+:root{
+    --main-color:#0e131f;
+    --second-color:#E0E2DB;
+    --title-font:'Fredoka One', cursive;
+    --second-font:'Manrope', sans-serif;
+}
+
+@media (max-width:576px){
+    main{
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "article"
+        "footer";
+        grid-template-columns: 1fr;
+    }
+    header{
+        grid-area: header;
+        width: 100vw;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0;
+       
+       
+    }
+
+    header h1{
+       margin-right: 2rem;
+    }
+
+    
+
+    .search-button{
+        display: block;
+        margin-right: 13rem;
+       
+    }
+
+    input[type="checkbox"]{
+        display: none;
+    }
+
+    .form-responsive{
+        display: flex;
+        position: relative;
+        grid-area: header;
+        align-items: center;
+        justify-content: center;
+        background-color:rgb(14, 19, 31, 0.8);
+        border: none;
+        border-radius: 0px;
+        margin-top: 10rem;
+        visibility: visible;
+        position: relative;
+    }
+
+    #searchButton:checked ~ .form-responsive{
+        visibility: hidden;
+    }
+
+
+    
+
+
+    input[type="button"]{
+        width: 20rem;
+        padding: 1rem 0;
+    }
+
+
+
+    aside{
+        width: 100vw;
+        display: none;
+    }
+    article{
+        grid-area: article;
+        width: 100vw;
+        height: fit-content;
+    }
+
+    #article{
+        margin-top: 5rem;
+        height: fit-content;
+    }
+
+    form{
+        margin: 0;
+    }
+
+    .welcome-page{
+        display: flex;
+        flex-direction: column;
+    }
+    .welcome-page__illustration img{
+        width: 100%;
+        height: 55vh;
+    }
+    footer{
+        grid-area: footer;
+        
+    }
+}
