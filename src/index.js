@@ -7,7 +7,7 @@ let article = document.getElementById('article');
 const logo = document.getElementById('bookify_logo');
 let articleItems =[];
 articleItems = article.children;
-
+let welcomePage = document.querySelector('.welcome-page');
 
 
 
@@ -17,7 +17,7 @@ const pull = ()=>{
     fetch(api+keyword.value)
     .then(response => response.json())
     .then(data=>{
-        let welcomePage = document.querySelector('.welcome-page');
+        
         if (keyword.value.length>3) {
             welcomePage.classList.add('inactivate');
             for(let i = 0; i < data.items.length; i++){     
@@ -115,14 +115,78 @@ const executeSearch =()=>{
     } 
 }
 
+/////////////////////RESPONSIVE////////////////////////////////
+var keyword2 = document.getElementById('keyword2');
+let submit2 = document.getElementById('submit2');
 
 
+const pull2 = ()=>{
+    fetch(api+keyword2.value)
+    .then(response => response.json())
+    .then(data=>{
+        
+        if (keyword2.value.length>3) {
+            welcomePage.classList.add('inactivate');
+            for(let i = 0; i < data.items.length; i++){     
+                article.innerHTML += `
+                <div class=container>
+                <div class="subcontainer">
+                    <div class="cover">
+                        <img class="cover_image" src="${data.items[i].volumeInfo.imageLinks.thumbnail}" alt="Cover">
+                        <a target="_blank" href=${data.items[i].volumeInfo.previewLink}>Leer</a>
+                    </div>
+                    <div class="info">
+                        <div class="titles">
+                            <h1>${data.items[i].volumeInfo.title}</h1>
+                            <h2>${data.items[i].volumeInfo.authors}</h2>
+                        </div>
+                        <div class="editor-info">
+                            <div class="editor-info__div-1">
+                                <h3>Publisher: ${data.items[i].volumeInfo.publisher}</h3>
+                                <h4>Release date: ${data.items[i].volumeInfo.publishedDate} </h4>
+                                <h4>Language: ${data.items[i].volumeInfo.language}</h4>
+                            </div>
+                            <div class="editor-info__div-2">
+                                <h4>Category: ${data.items[i].volumeInfo.categories}</h4>
+                                <h4>Pages:${data.items[i].volumeInfo.pageCount}</h4>
+                                <h4>ISBN: ${data.items[i].volumeInfo.industryIdentifiers[0].identifier}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                </div>` 
+                let cover = [];
+                cover = document.querySelectorAll('.cover_image');
+                cover.forEach((cover)=>{
+                cover.addEventListener('click',()=>{
+                    window.open(`${data.items[i].volumeInfo.previewLink}`);
+                });
+                })
+            }
+        }
+    })
+}
 
 
+const searchwithClick2 = ()=>{
+    submit2.addEventListener('click', ()=>{
+        if (keyword2.value.length>3) {
+            executeSearch2();
+        }
+   })
+}
 
+const executeSearch2 =()=>{
+    if (articleItems.length>1){
+        inactivate();
+        pull2();
+    
+    }else{
+        pull2();
+       
 
+    } 
+}
 
-
-
-
-
+searchwithClick2();

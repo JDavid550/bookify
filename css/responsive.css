@@ -19,9 +19,7 @@
         width: 100vw;
         justify-content: flex-end;
         align-items: center;
-        padding: 0;
-       
-       
+        padding: 0;      
     }
 
     header h1{
@@ -40,6 +38,20 @@
         display: none;
     }
 
+    @keyframes apear {
+        from{height: 0rem;
+        padding: 0;}
+        to{height: 10rem;
+        padding-left: 5rem;}
+    }
+
+    @keyframes disapear {
+        from{height: 10rem;
+        padding: 5;}
+        to{height: 0rem;
+        padding-left: 0rem;}
+    }
+
     .form-responsive{
         display: flex;
         position: relative;
@@ -50,16 +62,15 @@
         border: none;
         border-radius: 0px;
         margin-top: 10rem;
-        visibility: visible;
-        position: relative;
+        height: fit-content;
+        display: none;
+        animation: apear 0.3s ease;        
     }
 
     #searchButton:checked ~ .form-responsive{
-        visibility: hidden;
+        display: flex; 
+       
     }
-
-
-    
 
 
     input[type="button"]{
@@ -99,5 +110,18 @@
     footer{
         grid-area: footer;
         
+    }
+
+    .subcontainer{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .info{
+        margin: 3rem 0 0 0;
+    }
+
+    .inactivate{
+        display: none;
     }
 }
