@@ -83,7 +83,7 @@ const inactivate = ()=>{
 const searchWithEnter = ()=>{
     keyword.addEventListener('keyup', (e) =>{
         if (e.code == 'Enter' && keyword.value.length>3) {
-            executeSearch();
+            executeSearch(word);
         }
         
     })
