@@ -80,7 +80,7 @@ const inactivate = ()=>{
 
 ///There are two options to initiate the search, with click or pressing enter key, these functions allow that///
 
-const searchWithEnter = ()=>{
+const searchWithEnter = (word)=>{
     keyword.addEventListener('keyup', (e) =>{
         if (e.code == 'Enter' && keyword.value.length>3) {
             executeSearch(word);
@@ -97,7 +97,7 @@ const searchwithClick = (button,word)=>{
    })
 }
 
-searchWithEnter();
+searchWithEnter(keyword);
 searchwithClick(submitResponsive,keywordResponsive);
 searchwithClick(submit,keyword);
 
