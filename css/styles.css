@@ -43,6 +43,7 @@ main{
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 10rem auto 1.8rem;
     height: 100vh;
+    width: 100vw;
     
 }
 
@@ -125,7 +126,17 @@ header:hover{
     cursor: pointer;
 }
 
-header>h1{
+.logo-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.logo-container h1{
+    height: fit-content;
+}
+
+#bookify_logo{
     font-family: 'Fredoka One', cursive;
     font-size:xx-large;
     color: white;

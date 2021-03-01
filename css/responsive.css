@@ -6,6 +6,18 @@
 }
 
 @media (max-width:576px){
+    .subcontainer{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .info{
+        margin: 3rem 0 0 0;
+    }
+
+}
+
+@media (max-width:768px){
     main{
         display: grid;
         grid-template-areas: 
@@ -17,7 +29,7 @@
     header{
         grid-area: header;
         width: 100vw;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         padding: 0;      
     }
@@ -29,9 +41,8 @@
     
 
     .search-button{
-        display: block;
-        margin-right: 13rem;
-       
+       display: inline;
+       margin-left: 3rem;
     }
 
     input[type="checkbox"]{
@@ -45,12 +56,7 @@
         padding-left: 5rem;}
     }
 
-    @keyframes disapear {
-        from{height: 10rem;
-        padding: 5;}
-        to{height: 0rem;
-        padding-left: 0rem;}
-    }
+  
 
     .form-responsive{
         display: flex;
@@ -112,16 +118,33 @@
         
     }
 
-    .subcontainer{
-        display: flex;
-        flex-direction: column;
-        
-    }
     .info{
-        margin: 3rem 0 0 0;
+        margin-left: 5rem;
     }
+    
+    
 
     .inactivate{
         display: none;
     }
 }
+
+@media (min-width:800px )and (max-width:1208px){
+    .welcome-page{
+        display: flex;
+        flex-direction: column;
+        padding-top: 5rem;
+    }
+
+    .welcome-page__illustration {
+        display: flex;
+        justify-content: center;
+    }
+    .welcome-page__illustration img{
+        height: 70vh;
+        width: 100%;
+    }
+    .inactivate{
+        display: none;
+    }
+} 
